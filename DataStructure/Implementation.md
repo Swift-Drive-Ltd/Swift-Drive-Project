@@ -1,5 +1,5 @@
 
-## Updates (16/3/2025)
+#### Updates (16/3/2025)
 
 ### Implemented:
 - Initialized basic structure for Student class with core properties
@@ -27,3 +27,50 @@ No node class has been implemented yet
 4. Create HashTable implementation
 5. Implement remaining entity classes (Instructor, Car, Booking)
 6. Develop BookingManager class
+
+
+
+
+
+##### Updates (17/3/2025)
+
+### Implemented:
+- Completed full implementation of SortedLinkedList<T> with all core methods:
+  - Insert: Adds elements in sorted order
+  - Delete: Removes elements with proper predecessor/successor handling
+  - Find: Locates an element and returns it
+  - Display: Shows all elements in the list
+- Enhanced Student class with:
+  - Complete properties (StudentId, Name, DateOfBirth, ContactNumber, Email, LicenseNumber)
+  - Constructor with validation
+  - ToString method for display
+  - IComparable implementation for use with SortedLinkedList
+  - Validation method to ensure data integrity
+
+### In Progress:
+- Setting up initial test cases for SortedLinkedList and Student classes
+- Planning implementation of StudentLogic class that will use the SortedLinkedList
+
+### Technical Details:
+
+# SortedLinkedList Class
+- Implemented a private Node inner class to store data and next references
+- Insert method places elements in ascending order based on CompareTo
+- Delete method properly handles head node deletion and middle node removal
+- Find method traverses the list and uses Equals for comparison
+- All methods include XML documentation
+
+# Student Class
+- Implements IComparable<Student> to enable sorting in the list
+- CompareTo method uses StudentId as the primary comparison field
+- Added validation method to check for:
+  - Required fields (Name, Email, LicenseNumber)
+  - Valid email format (basic check)
+  - Minimum age requirement (16 years)
+- ToString provides a formatted string representation for display
+
+### Next Steps:
+1. Create initial unit tests for Student and SortedLinkedList
+2. Begin implementation of StudentLogic class
+3. Plan database structure for Student persistence
+4. Coordinate with Amii on Booking integration requirements
