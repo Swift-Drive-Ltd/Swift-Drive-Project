@@ -1,9 +1,11 @@
 ## BookingsHashTable ##
 
-Namespace: DrivingSchool.DataStructures
+Namespace: DrivingLessonsBooking
 Class: BookingsHashTable
 Purpose: This class is intended to implement a hash table specifically for managing bookings in the driving school system.
-
+Steps include : 
+- Collision resolution strategy
+- Resize functionality when load factor exceeds threshold
 
 
 ## Booking.cs ##
