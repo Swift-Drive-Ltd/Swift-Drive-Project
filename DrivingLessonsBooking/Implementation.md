@@ -1,12 +1,12 @@
-## BookingsHashTable ##
+# BookingsHashTable #
 
-# Namespace:
+### Namespace:
  DrivingLessonsBooking
-# Class:
+### Class:
  BookingsHashTable
 #Purpose:
  This class is intended to implement a hash table specifically for managing bookings in the driving school system.
-# Steps include : 
+### Steps include : 
 - Collision resolution strategy
 - Resize functionality when load factor exceeds threshold
 
