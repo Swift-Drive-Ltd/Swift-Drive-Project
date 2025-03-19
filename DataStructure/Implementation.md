@@ -1,5 +1,4 @@
-
-#### Updates (16/3/2025)
+#### Day1
 
 ### Implemented:
 - Initialized basic structure for Student class with core properties
@@ -32,7 +31,7 @@ No node class has been implemented yet
 
 
 
-##### Updates (17/3/2025)
+##### Day 2
 
 ### Implemented:
 - Completed full implementation of SortedLinkedList<T> with all core methods:
@@ -74,3 +73,50 @@ No node class has been implemented yet
 2. Begin implementation of StudentLogic class
 3. Plan database structure for Student persistence
 4. Coordinate with Amii on Booking integration requirements
+
+
+
+
+
+##### Day 3
+
+### Implemented:
+- Created comprehensive unit test suite:
+  - StudentTests: Validates all aspects of Student entity behavior
+  - SortedLinkedListTests: Ensures proper sorting and data operations
+- Developed StudentLogic class with business operations:
+  - AddStudent: Validates and adds new students with duplicate checking
+  - UpdateStudent: Modifies existing student data with validation
+  - DeleteStudent: Removes students by ID
+  - FindStudentById: Retrieves specific student records
+  - FindStudentsByName: Searches for students with partial name matching
+
+### In Progress:
+- Enhancing StudentLogic with more efficient search capabilities
+- Planning implementation of HashTable for the next entity classes
+- Designing database integration strategy
+
+### Technical Details:
+
+# Unit Testing
+- Used MSTest framework for unit testing
+- Created test cases for:
+  - Student validation logic (age requirements, email format)
+  - Student comparison and string representation
+  - SortedLinkedList insertion order verification
+  - SortedLinkedList element deletion and retrieval
+  - Edge cases (empty lists, non-existent elements)
+
+# StudentLogic Class
+- Implements repository pattern for student data management
+- Uses SortedLinkedList as the underlying data structure
+- Provides CRUD operations with data validation
+- Includes specialized search functionality (by ID and name)
+- Handles duplicate detection and validation errors
+
+### Next Steps:
+1. Implement IEnumerable<T> for SortedLinkedList to improve iteration capabilities
+2. Begin HashTable implementation for O(1) lookup performance
+3. Create Instructor and Car entity classes
+4. Design BookingManager with relationship management between entities
+5. Implement proper exception handling throughout the system
