@@ -1,0 +1,10 @@
+-- Basic database schema for Driving School Management System
+
+-- Students table
+CREATE TABLE IF NOT EXISTS Students (
+    StudentId INTEGER PRIMARY KEY,
+    Name TEXT NOT NULL,
+    Email TEXT UNIQUE NOT NULL
+    -- More fields to be added
+);
+-- TODO: Add remaining tables
