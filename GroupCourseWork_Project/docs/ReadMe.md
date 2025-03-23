@@ -10,18 +10,36 @@ Our initial commit 4th February 2025(We created the repository on github)
 
 To preview the diagram click on the tab of the file and click open preview to view the diagram.
 
-- Today 23/3/2025
+# Driving Lessons Booking System
 
-Custom Hash Table Implementation
+## Custom Hash Table Implementation
+- **Date Added:** March 23, 2025
+- **Description:** Implemented a generic CustomHashTable class within the DrivingLessonsBooking namespace that uses chaining for collision resolution.
 
-1.Feature Added: Implemented a generic CustomHashTable<TKey, TValue> class in the DrivingLessonsBooking namespace.
-Details:
-    •	Structure: Uses a hash table with chaining (linked list) to handle collisions.
-	•	Key Methods:
-	•	Insert(TKey key, TValue value): Adds or updates a key-value pair. If the key exists, updates the value; otherwise, adds a new node to the chain.
-	•	Search(TKey key): Retrieves the value associated with a given key, returns default if not found.
-	•	Delete(TKey key): Removes a key-value pair from the table, handles cases with and without predecessors in the chain.
-	•	DisplayAll(): Prints all values stored in the hash table to the console.
-	•	Hashing: Uses GetHashCode() with modulo operation to determine the index, ensuring non-negative results with Math.Abs.
-	•	Capacity: Constructor accepts a size parameter to initialize the table array.
-	•	Purpose: Provides a custom, flexible data structure for storing and managing key-value pairs, potentially for booking-related data in the DrivingLessonsBooking system.
+### Features Added:
+1. **Generic Implementation:**
+   - Created a generic hash table that can store any key-value pair types using `TKey` and `TValue` type parameters
+   - Uses a private nested `HashNode` class to store key-value pairs and maintain the linked list structure
+
+2. **Core Functionality:**
+   - **Constructor:** Initializes the hash table with a specified capacity
+   - **Insert:** Adds or updates key-value pairs using chaining for collision handling
+   - **Search:** Retrieves values by key with O(1) average case performance
+   - **Delete:** Removes key-value pairs from the table
+   - **DisplayAll:** Prints all stored values in the hash table
+
+3. **Hashing Mechanism:**
+   - Implements a simple hash function using `GetHashCode()` with modulo operation
+   - Handles negative hash codes using `Math.Abs()`
+   - Distributes keys across the table based on array size
+
+4. **Collision Resolution:**
+   - Uses chaining with linked lists to handle hash collisions
+   - Maintains a linked list at each table index using the `Next` pointer in HashNode
+
+### Technical Details:
+- **Structure:** Array of HashNode references with linked list chaining
+- **Time Complexity:**
+  - Average case: O(1) for Insert, Search, and Delete
+  - Worst case: O(n) when many keys hash to the same index
+- **Space Complexity:** O(n) where n is the number of key-value pairs stored
