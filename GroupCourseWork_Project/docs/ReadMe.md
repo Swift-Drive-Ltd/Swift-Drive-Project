@@ -42,4 +42,4 @@ To preview the diagram click on the tab of the file and click open preview to vi
 - **Time Complexity:**
   - Average case: O(1) for Insert, Search, and Delete
   - Worst case: O(n) when many keys hash to the same index
-- **Space Complexity:** O(n) where n is the number of key-value pairs stored
+- **Space Complexity:** O(n) where n is the number of key-value pairs stored.
