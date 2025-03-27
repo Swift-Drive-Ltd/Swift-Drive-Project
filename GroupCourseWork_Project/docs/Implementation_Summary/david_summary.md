@@ -1,0 +1,20 @@
+# Booking Logic - Day 1 Commit
+
+# Initial Setup
+Created the BookingLogic class to handle booking operations.
+
+Initialized key properties such as CustomHashTable<string, Booking> for storing bookings and SortedLinkedList<Booking> to maintain sorted order by booking date.
+
+Set up the database connection string for SQLite integration.
+
+# Features Added
+LoadBookingsFromDatabase Method:
+
+This method connects to the SQLite database and loads booking details from the Bookings table.
+
+Each booking is added to both the hash table and the sorted linked list to maintain booking data in memory.
+
+# Next Steps
+Implement methods for creating, updating, and deleting bookings.
+
+Improve database integration for additional functionality such as booking validation and updates
