@@ -22,3 +22,38 @@
 ## Methods
 - **CompareTo(Instructor? other)**: Compares instructors by their names
 - **ToString()**: Returns a string representation of the instructor in the format `InstructorID: {InstructorID}, Name: {Name}, Phone: {Phone}`
+
+
+
+
+## Day 3
+# Summary of Implemented Features in InstructorLogic.cs
+
+# Namespace:
+ DrivingLessonsBooking
+
+# Class:
+ InstructorLogic
+
+- Manages instructor data and interactions with the SQLite database.
+
+# Fields:
+
+- CustomHashTable<string, Instructor> instructors: A custom hash table to store instructors with their IDs as keys.
+
+- SortedLinkedList<Instructor> sortedInstructors: A sorted linked list to maintain instructors in a sorted order.
+
+- string connectionString: Connection string for the SQLite database.
+
+# Constructor:
+
+- Initializes the custom hash table and sorted linked list with a specified capacity.
+
+- Loads existing instructors from the SQLite database into memory.
+
+# Methods:
+|LoadInstructorsFromDatabase():
+
+- Connects to the SQLite database.
+- Retrieves all instructors from the Instructors table.
+- Populates the hash table and sorted linked list with the retrieved data.
