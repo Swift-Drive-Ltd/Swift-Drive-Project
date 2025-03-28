@@ -22,3 +22,5 @@ namespace DrivingLessonsBookingTests
             Assert.AreEqual(date, booking.LessonDate);
             Assert.AreEqual(car, booking.carID);
         }
+    }
+}
