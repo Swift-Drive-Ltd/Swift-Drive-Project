@@ -2,7 +2,43 @@
 New Commits & Implementations ( As from 24 March) because of ssues with file structures, leading to merging conflict.
 
  # New files responsible for # 
-1. CarLogic
+
+ 1. Car.cs 
+
+Summary of Car Class Implementation
+
+
+The Car class is a foundational component of the DrivingLessonsBooking namespace. It represents a car entity with properties and methods to manage its data and behavior.
+
+Properties:
+
+CarID: A unique identifier for the car.
+Model: The model name of the car.
+Type: Indicates whether the car is manual or automatic.
+LicensePlate: The car's license plate number.
+
+
+Constructors:
+
+Default Constructor: A parameterless constructor required for database operations.
+Parameterized Constructor: Initializes a car object with specific values for CarID, Model, Type, and LicensePlate.
+
+
+Methods:
+
+CompareTo(Car? other):
+Implements the IComparable<Car> interface.
+Compares cars based on their Model property for sorting purposes.
+ToString():
+Overrides the default ToString method to provide a formatted string representation of the car's details.
+
+
+Purpose:
+The Car class serves as a data model for car objects, encapsulating their attributes and providing methods for comparison and display.
+It is designed to integrate seamlessly with other components like CarLogic for managing car data in-memory and in the database.
+
+
+2. CarLogic
 
 ## Intended Plan ##
 
@@ -61,5 +97,8 @@ Provides console output for error messages and successful operations.
 Uses using statements to ensure proper disposal of database connections and commands.
 This systematic approach ensures that car data is efficiently managed both in-memory and in the database, providing a robust solution for the driving lessons booking system.
 
+Day 1 : 
 
-### Next Step : Figure out for car.cs and other small details###
+This code sets up the foundation for the CarLogic class, including its fields and constructor, while leaving the LoadCarsFromDatabase method as a placeholder for Day 2.
+
+Pending : Connection string for Database
