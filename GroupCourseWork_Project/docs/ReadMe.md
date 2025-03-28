@@ -10,9 +10,9 @@ Our initial commit 4th February 2025(We created the repository on github)
 
 To preview the diagram click on the tab of the file and click open preview to view the diagram.
 
-# Driving Lessons Booking System
+ Driving Lessons Booking System
 
-## Custom Hash Table Implementation
+ Custom Hash Table Implementation
 - **Date Added:** March 23, 2025
 - **Description:** Implemented a generic CustomHashTable class within the DrivingLessonsBooking namespace that uses chaining for collision resolution.
 
