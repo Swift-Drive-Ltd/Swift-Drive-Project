@@ -43,3 +43,6 @@ To preview the diagram click on the tab of the file and click open preview to vi
   - Average case: O(1) for Insert, Search, and Delete
   - Worst case: O(n) when many keys hash to the same index
 - **Space Complexity:** O(n) where n is the number of key-value pairs stored.
+
+- Today **Date Added:** March 28, 2025
+-  **Description:** Implemenented a unit test code that ensures the Booking constructor properly initializes its properties. If the test passes, the constructor is working correctly. If it fails, there is an issue with how the Booking class handles its properties.
