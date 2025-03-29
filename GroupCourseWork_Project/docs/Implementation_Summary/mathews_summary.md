@@ -28,3 +28,27 @@
 
 ### Next Steps:
 - Implement core operations (Insert, Search)
+
+
+## Commit 2: Implement Insert and Search Operations
+
+### Implemented:
+- Added `Insert` method that maintains sorted order based on the natural ordering of elements
+  - Handles empty list case
+  - Handles insertion at the beginning
+  - Inserts in the correct position to maintain sorted order
+- Added `Search` method to find elements in the list
+  - Returns the found element or default value if not found
+  - Uses equality comparison for exact matches
+
+### Technical Details:
+- Insert operation has O(n) time complexity in worst case
+- Insert maintains elements in ascending order based on CompareTo
+- Search traverses the list linearly (O(n) time complexity)
+- Proper null handling is implemented for robustness
+
+### Next Steps:
+- Implement Delete operation
+- Add utility methods for display and list management
+
+
