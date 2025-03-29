@@ -20,7 +20,27 @@ namespace DrivingLessonsBooking
         // Placeholder for LoadCarsFromDatabase method to be implemented later
         private void LoadCarsFromDatabase()
         {
-            // Implementation will be added in Day 2
+            //Fix connection string, instead of SQLite
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+                using (var cmd = new SQLiteCommand("SELECT * FROM Cars", conn))
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Car car = new Car(
+                            reader["CarID"].ToString(),
+                            reader["Model"].ToString(),
+                            reader["Type"].ToString(),
+                            reader["LicensePlate"].ToString()
+                        );
+
+                        cars.Insert(car.CarID, car);
+                        sortedCars.Insert(car);
+                    }
+                }
+            }
         }
     }
 }

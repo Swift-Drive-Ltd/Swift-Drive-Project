@@ -102,3 +102,14 @@ Day 1 :
 This code sets up the foundation for the CarLogic class, including its fields and constructor, while leaving the LoadCarsFromDatabase method as a placeholder for Day 2.
 
 Pending : Connection string for Database
+
+Day 2 :
+
+Implemented the LoadCarsFromDatabase method to connect to the  database and retrieve car data.
+
+
+Populated the CustomHashTable and SortedLinkedList with the retrieved car objects.
+
+Ensured the CarLogic class can initialize its in-memory data structures from persistent storage.
+
+Pending : Use SQL Studio Management instead of SQLite
