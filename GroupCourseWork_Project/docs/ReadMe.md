@@ -46,3 +46,5 @@ To preview the diagram click on the tab of the file and click open preview to vi
 
 - Today **Date Added:** March 28, 2025
 -  **Description:** Implemenented a unit test code that ensures the Booking constructor properly initializes its properties. If the test passes, the constructor is working correctly. If it fails, there is an issue with how the Booking class handles its properties.
+- Today **Date Added:** March 29, 2025
+-  **Description:** Updated the unit test code that ensures the Booking constructor properly initializes its properties. 
