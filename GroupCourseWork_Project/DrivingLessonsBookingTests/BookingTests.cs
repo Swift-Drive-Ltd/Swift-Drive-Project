@@ -22,5 +22,15 @@ namespace DrivingLessonsBookingTests
             Assert.AreEqual(date, booking.LessonDate);
             Assert.AreEqual(car, booking.carID);
         }
+        [TestMethod]
+        public void Booking_CompareTo_ShouldReturnCorrectValue()
+        {
+            Booking earlierBooking = new Booking("B001", "Alice", "Bob", new DateTime(2025, 5, 10), "Honda");
+            Booking laterBooking = new Booking("B002", "Charlie", "Dan", new DateTime(2025, 6, 10), "Ford");
+
+            Assert.IsTrue(earlierBooking.CompareTo(laterBooking) < 0);
+            Assert.IsTrue(laterBooking.CompareTo(earlierBooking) > 0);
+            Assert.IsTrue(earlierBooking.CompareTo(earlierBooking) == 0);
+        }
     }
 }
