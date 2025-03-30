@@ -113,3 +113,17 @@ Populated the CustomHashTable and SortedLinkedList with the retrieved car object
 Ensured the CarLogic class can initialize its in-memory data structures from persistent storage.
 
 Pending : Use SQL Studio Management instead of SQLite
+
+Day 3 :
+
+AddCar Method:
+
+- Checks if a car with the same CarID already exists in the system.
+- Adds a new car to the in-memory data structures (CustomHashTable and SortedLinkedList).
+- Inserts the new car into the SQLite database using an INSERT SQL query.
+- Provides console feedback for success or failure.
+
+Purpose:
+
+The AddCar method allows the system to add new cars while ensuring data consistency between the in-memory structures and the database.
+It prevents duplicate entries by checking for existing CarIDs.

@@ -42,5 +42,34 @@ namespace DrivingLessonsBooking
                 }
             }
         }
+         public void AddCar(Car car)
+        {
+            if (cars.Search(car.CarID) != null)
+            {
+                Console.WriteLine("Car ID already exists.");
+                return;
+            }
+
+            cars.Insert(car.CarID, car);
+            sortedCars.Insert(car);
+
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+                using (var cmd = new SQLiteCommand(
+                    "INSERT INTO Cars (CarID, Model, Type, LicensePlate) VALUES (@id, @model, @type, @license)",
+                    conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", car.CarID);
+                    cmd.Parameters.AddWithValue("@model", car.Model);
+                    cmd.Parameters.AddWithValue("@type", car.Type);
+                    cmd.Parameters.AddWithValue("@license", car.LicensePlate);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            Console.WriteLine("Car successfully added.");
+        }
     }
 }
+    
