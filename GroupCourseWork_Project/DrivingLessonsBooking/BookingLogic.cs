@@ -110,6 +110,5 @@ namespace DrivingLessonsBooking
                 }
             }
 
-            Console.WriteLine("Booking updated successfully.");
+            Console.WriteLine("Booking updated Successfully.");
         }
-

@@ -38,4 +38,3 @@ Improve database integration for additional functionality such as booking valida
 - Implement method for deleting bookings.
 - Improve error handling for database operations.
 - Optimize database queries for performance.
-
