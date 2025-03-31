@@ -52,3 +52,26 @@
 - Add utility methods for display and list management
 
 
+## Commit 3: Complete CustomLinkedList with Delete and Display Methods
+
+### Implemented:
+- Added `Delete` method to remove elements from the list:
+  - Handles empty list case
+  - Handles deletion of the head node
+  - Removes elements from the middle or end of the list
+  - Returns boolean to indicate success or failure
+- Added `Display` method to output all list elements:
+  - Traverses the list and prints each element
+  - Uses the element's ToString method for display
+
+### Technical Details:
+- Delete operation has O(n) time complexity in worst case
+- Delete properly maintains list integrity by updating references
+- Display method provides a simple way to view all list contents
+- All operations handle edge cases (empty list, element not found, etc.)
+
+### Completed Features:
+- Generic sorted linked list implementation
+- Core operations: Insert, Search, Delete
+- List traversal and display
+- Proper null safety throughout the implementation
