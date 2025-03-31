@@ -50,4 +50,52 @@ namespace DrivingLessonsBooking
                             reader["Phone"].ToString()         // Phone number of the instructor.
                         );
 
+                        
+                        // Insert the instructor into the hash table using their ID as the key.
+                        instructors.Insert(instructor.InstructorID, instructor);
+
+                        // Insert the instructor into the sorted linked list.
+                        sortedInstructors.Insert(instructor);
+                    }
+                }
+            }
+        }
+
+        // Method to add a new instructor to the system and database.
+        public void AddInstructor(Instructor instructor)
+        {
+            // Check if an instructor with the same ID already exists in the hash table.
+            if (instructors.Search(instructor.InstructorID) != null)
+            {
+                Console.WriteLine("Instructor ID already exists."); // Notify the user.
+                return; // Exit the method if the ID is not unique.
+            }
+
+            // Insert the new instructor into the hash table and sorted linked list.
+            instructors.Insert(instructor.InstructorID, instructor);
+            sortedInstructors.Insert(instructor);
+
+            // Open a connection to the SQLite database.
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+
+                // Create a SQL command to insert the new instructor into the database.
+                using (var cmd = new SQLiteCommand(
+                    "INSERT INTO Instructors (InstructorID, Name, Phone) VALUES (@id, @name, @phone)",
+                    conn))
+                {
+                    // Add parameters to prevent SQL injection.
+                    cmd.Parameters.AddWithValue("@id", instructor.InstructorID);
+                    cmd.Parameters.AddWithValue("@name", instructor.Name);
+                    cmd.Parameters.AddWithValue("@phone", instructor.Phone);
+
+                    // Execute the command to insert the record into the database.
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            Console.WriteLine("Instructor successfully added."); // Notify the user of success.
+        }
+
 

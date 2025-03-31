@@ -57,3 +57,43 @@
 - Connects to the SQLite database.
 - Retrieves all instructors from the Instructors table.
 - Populates the hash table and sorted linked list with the retrieved data.
+
+
+
+## Day 4
+# Summary of Implemented Features in InstructorLogic.cs
+
+# Namespace:
+|DrivingLessonsBooking
+
+# Class:
+|InstructorLogic
+
+- Manages instructor data and interactions with the SQLite database.
+
+# Fields:
+- CustomHashTable<string, Instructor> instructors: A custom hash table to store instructors with their IDs as keys.
+
+- SortedLinkedList<Instructor> sortedInstructors: A sorted linked list to maintain instructors in a sorted order. 
+
+- string connectionString: Connection string for the SQLite database.
+
+# Constructor:
+- Initializes the custom hash table and sorted linked list with a specified capacity.
+
+- Loads existing instructors from the SQLite database into memory.
+
+# Methods:
+|LoadInstructorsFromDatabase():
+
+- Connects to the SQLite database.
+- Retrieves all instructors from the Instructors table.
+- Populates the hash table and sorted linked list with the retrieved data.
+
+|AddInstructor(Instructor instructor):
+
+- Checks if an instructor with the same ID already exists in the hash table.
+- Inserts the new instructor into the hash table and sorted linked list.
+- Opens a connection to the SQLite database.
+- Executes a parameterized SQL query to insert the new instructor into the database, preventing SQL injection.
+- Notifies the user upon successful addition of the instructor.
