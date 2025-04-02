@@ -112,3 +112,35 @@ namespace DrivingLessonsBooking
 
             Console.WriteLine("Booking updated Successfully.");
         }
+ public bool DeleteBooking(string id)
+        {
+            Booking toRemove = bookings.Search(id);
+            if (toRemove == null)
+            {
+                Console.WriteLine("Booking not found.");
+                return false;
+            }
+
+            bookings.Delete(id);
+            sortedBookings.Delete(toRemove);
+
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+                using (var cmd = new SQLiteCommand("DELETE FROM Bookings WHERE BookingID = @id", conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            Console.WriteLine("Booking deleted successfully.");
+            return true;
+        }
+
+        public void DisplayBookingsSorted()
+        {
+            sortedBookings.Display();
+        }
+    }
+}

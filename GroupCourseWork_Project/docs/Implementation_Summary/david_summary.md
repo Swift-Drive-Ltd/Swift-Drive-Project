@@ -38,3 +38,26 @@ Improve database integration for additional functionality such as booking valida
 - Implement method for deleting bookings.
 - Improve error handling for database operations.
 - Optimize database queries for performance.
+
+# Booking Logic - Updated Commit  
+
+## Enhancements in Booking Management  
+
+### Implemented the `AddBooking` method:  
+- Prevents duplicate booking IDs.  
+- Inserts new bookings into both the hash table and sorted linked list.  
+- Saves booking details into the SQLite database.  
+
+### Implemented the `GetBooking` method:  
+- Retrieves a booking by its ID from the hash table.  
+
+### Implemented the `ModifyBooking` method:  
+- Updates existing booking details.  
+- Ensures modifications reflect in both data structures and the database.  
+
+### Implemented the `DeleteBooking` method:  
+- Removes a booking from the hash table and sorted linked list.  
+- Deletes the booking from the SQLite database.  
+
+### Implemented the `DisplayBookingsSorted` method:  
+- Displays bookings in sorted order by date.  
