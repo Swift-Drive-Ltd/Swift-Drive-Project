@@ -32,5 +32,17 @@ namespace DrivingLessonsBookingTests
             Assert.IsTrue(laterBooking.CompareTo(earlierBooking) > 0);
             Assert.IsTrue(earlierBooking.CompareTo(earlierBooking) == 0);
         }
+        [TestMethod]
+        public void Booking_CompareTo_ShouldReturnOneWhenOtherIsNull()
+        {
+            Booking booking = new Booking("B001", "Alice", "Bob", DateTime.Now, "Honda");
+
+
+            int result = booking.CompareTo(null);
+
+
+            Assert.AreEqual(1, result);
+        }
+
     }
 }
