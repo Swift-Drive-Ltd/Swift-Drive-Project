@@ -61,3 +61,29 @@ Improve database integration for additional functionality such as booking valida
 
 ### Implemented the `DisplayBookingsSorted` method:  
 - Displays bookings in sorted order by date.  
+
+# Student Logic - Initial Commit
+## Implemented Student Management System
+## Created the StudentLogic class to manage student records.
+
+# Initialized data structures:
+
+CustomHashTable<string, Student> for quick student lookup.
+
+SortedLinkedList<Student> for maintaining students in sorted order.
+
+### Integrated SQLite database for persistent student data storage.
+
+### Implemented LoadStudentsFromDatabase Method
+Establishes a connection to the SQLite database.
+
+Retrieves all student records from the Students table.
+
+Populates the hash table and sorted linked list with student data.
+
+## **Next Steps
+Implement methods to add, update, and delete student records.
+
+Improve error handling for database operations.
+
+Optimize database queries for better performance.
