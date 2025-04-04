@@ -145,6 +145,6 @@ Day 4 :
 
 
 Purpose:
-T- he GetCar method allows the system to retrieve car details by their unique CarID.
+-The GetCar method allows the system to retrieve car details by their unique CarID.
 - The ModifyCar method enables updating car details while ensuring data consistency between in-memory structures and the database.
 
