@@ -126,4 +126,25 @@ AddCar Method:
 Purpose:
 
 The AddCar method allows the system to add new cars while ensuring data consistency between the in-memory structures and the database.
+
 It prevents duplicate entries by checking for existing CarIDs.
+
+Day 4 :
+
+1. GetCar Method:
+
+- Retrieves a car by its CarID from the CustomHashTable.
+- Returns the car object if found, or null if it does not exist.
+
+
+2. ModifyCar Method:
+
+- Updates an existing car's details in the CustomHashTable, SortedLinkedList, and the SQLite database.
+- Deletes the old car entry from the SortedLinkedList and re-inserts the updated car to maintain the sorted order.
+- Provides console feedback for success or failure.
+
+
+Purpose:
+T- he GetCar method allows the system to retrieve car details by their unique CarID.
+- The ModifyCar method enables updating car details while ensuring data consistency between in-memory structures and the database.
+

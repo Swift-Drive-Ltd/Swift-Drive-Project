@@ -70,6 +70,75 @@ namespace DrivingLessonsBooking
 
             Console.WriteLine("Car successfully added.");
         }
+
+        public void AddCar(Car car)
+        {
+            if (cars.Search(car.CarID) != null)
+            {
+                Console.WriteLine("Car ID already exists.");
+                return;
+            }
+
+            cars.Insert(car.CarID, car);
+            sortedCars.Insert(car);
+
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+                using (var cmd = new SQLiteCommand(
+                    "INSERT INTO Cars (CarID, Model, Type, LicensePlate) VALUES (@id, @model, @type, @license)",
+                    conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", car.CarID);
+                    cmd.Parameters.AddWithValue("@model", car.Model);
+                    cmd.Parameters.AddWithValue("@type", car.Type);
+                    cmd.Parameters.AddWithValue("@license", car.LicensePlate);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            Console.WriteLine("Car successfully added.");
+        }
+         public Car GetCar(string id)
+        {
+            return cars.Search(id);
+        }
+
+        public void ModifyCar(string id, string model, string type, string licensePlate)
+        {
+            Car existingCar = cars.Search(id);
+            if (existingCar == null)
+            {
+                Console.WriteLine("Car not found.");
+                return;
+            }
+
+            sortedCars.Delete(existingCar);
+
+            existingCar.Model = model;
+            existingCar.Type = type;
+            existingCar.LicensePlate = licensePlate;
+
+            sortedCars.Insert(existingCar);
+
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+                using (var cmd = new SQLiteCommand(
+                    "UPDATE Cars SET Model = @model, Type = @type, LicensePlate = @license WHERE CarID = @id",
+                    conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@model", model);
+                    cmd.Parameters.AddWithValue("@type", type);
+                    cmd.Parameters.AddWithValue("@license", licensePlate);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            Console.WriteLine("Car updated successfully.");
+        }
     }
+
 }
     
