@@ -17,3 +17,26 @@ namespace DrivingLessonsBooking
             students = new CustomHashTable<string, Student>(capacity);
             sortedStudents = new SortedLinkedList<Student>();
             LoadStudentsFromDatabase();
+
+ public void LoadStudentsFromDatabase()
+        {
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+                using (var cmd = new SQLiteCommand("SELECT * FROM Students", conn))
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Student student = new Student(
+                            reader["StudentID"].ToString(),
+                            reader["Name"].ToString(),
+                            reader["Email"].ToString()
+                        );
+
+                        students.Insert(student.StudentID, student);
+                        sortedStudents.Insert(student);
+                    }
+                }
+            }
+        }

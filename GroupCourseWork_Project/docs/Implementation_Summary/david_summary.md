@@ -84,6 +84,25 @@ Populates the hash table and sorted linked list with student data.
 ## **Next Steps
 Implement methods to add, update, and delete student records.
 
-Improve error handling for database operations.
+## Improve error handling for database operations.
 
-Optimize database queries for better performance.
+## Optimize database queries for better performance.
+
+Student Logic - Database Integration
+Added LoadStudentsFromDatabase method:
+
+### Connects to the SQLite database.
+
+Fetches all records from the Students table.
+
+Instantiates Student objects and inserts them into:
+
+CustomHashTable<string, Student> for fast access.
+
+SortedLinkedList<Student> for ordered display.
+
+## Next Steps
+Add functionality to create, update, and delete student records.
+
+Ensure error handling and data validation for robustness.
+
