@@ -106,3 +106,23 @@ Add functionality to create, update, and delete student records.
 
 Ensure error handling and data validation for robustness.
 
+# Student Logic - Record Addition
+## Implemented AddStudent method:
+
+Checks for duplicate StudentID before insertion.
+
+### Adds the student to:
+
+CustomHashTable<string, Student> for fast lookup.
+
+SortedLinkedList<Student> for maintaining order.
+
+Inserts the student record into the Students table in the SQLite database.
+
+Confirms addition via console message.
+
+## Next Steps
+Implement methods for retrieving, updating, and deleting student records.
+
+Handle potential exceptions during database operations.
+

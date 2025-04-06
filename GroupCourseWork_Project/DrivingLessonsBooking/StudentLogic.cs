@@ -40,3 +40,30 @@ namespace DrivingLessonsBooking
                 }
             }
         }
+         public void AddStudent(Student student)
+        {
+            if (students.Search(student.StudentID) != null)
+            {
+                Console.WriteLine("Student ID already exists.");
+                return;
+            }
+
+            students.Insert(student.StudentID, student);
+            sortedStudents.Insert(student);
+
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+                using (var cmd = new SQLiteCommand(
+                    "INSERT INTO Students (StudentID, Name, Email) VALUES (@id, @name, @email)",
+                    conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", student.StudentID);
+                    cmd.Parameters.AddWithValue("@name", student.Name);
+                    cmd.Parameters.AddWithValue("@email", student.Email);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            Console.WriteLine("Student successfully added.");
+        }
