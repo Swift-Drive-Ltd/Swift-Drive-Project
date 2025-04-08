@@ -126,3 +126,50 @@ Implement methods for retrieving, updating, and deleting student records.
 
 Handle potential exceptions during database operations.
 
+# Student Logic - Record Management
+
+## Implemented the GetStudent method:
+
+Retrieves a student by StudentID from the hash table.
+
+Enables fast lookup without accessing the database directly.
+
+## Implemented the ModifyStudent method:
+Checks if the student exists in the hash table.
+
+Updates Name and Email fields of the student object.
+
+Reflects changes in both:
+
+CustomHashTable<string, Student>
+
+SortedLinkedList<Student> (by removing and reinserting the updated object).
+
+Updates the corresponding record in the SQLite database.
+
+Prints confirmation message upon successful update.
+
+### Next Steps
+Implement student deletion functionality.
+
+Add sorted display of student records.
+
+Strengthen validation and error handling.
+
+
+# Implemented the DeleteStudent method:
+Searches for the student by StudentID.
+
+If found, removes the student from:
+
+CustomHashTable<string, Student>
+
+SortedLinkedList<Student>
+
+Deletes the record from the SQLite Students table.
+
+Prints confirmation message after successful deletion.
+
+# Implemented the DisplayStudentsSorted method:
+Utilizes the SortedLinkedList<Student> to display all students in sorted order.
+

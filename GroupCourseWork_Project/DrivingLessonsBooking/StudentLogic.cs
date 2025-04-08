@@ -67,3 +67,72 @@ namespace DrivingLessonsBooking
 
             Console.WriteLine("Student successfully added.");
         }
+         public Student GetStudent(string id)
+        {
+            return students.Search(id);
+        }
+
+        public void ModifyStudent(string id, string name, string email)
+        {
+            Student existingStudent = students.Search(id);
+            if (existingStudent == null)
+            {
+                Console.WriteLine("Student not found.");
+                return;
+            }
+
+            sortedStudents.Delete(existingStudent);
+
+            existingStudent.Name = name;
+            existingStudent.Email = email;
+
+            sortedStudents.Insert(existingStudent);
+
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+                using (var cmd = new SQLiteCommand(
+                    "UPDATE Students SET Name = @name, Email = @email WHERE StudentID = @id",
+                    conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            Console.WriteLine("Student updated successfully.");
+        }
+         public bool DeleteStudent(string id)
+        {
+            Student toRemove = students.Search(id);
+            if (toRemove == null)
+            {
+                Console.WriteLine("Student not found.");
+                return false;
+            }
+
+            students.Delete(id);
+            sortedStudents.Delete(toRemove);
+
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+                using (var cmd = new SQLiteCommand("DELETE FROM Students WHERE StudentID = @id", conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            Console.WriteLine("Student deleted successfully.");
+            return true;
+        }
+
+        public void DisplayStudentsSorted()
+        {
+            sortedStudents.Display();
+        }
+    }
+}
