@@ -173,3 +173,28 @@ Prints confirmation message after successful deletion.
 # Implemented the DisplayStudentsSorted method:
 Utilizes the SortedLinkedList<Student> to display all students in sorted order.
 
+# Added Unit Tests for Booking Functionality
+
+## AddBooking_ShouldInsertBooking
+Purpose: Verifies that a new booking is correctly inserted.
+
+Logic:
+
+Creates a Booking object.
+
+Inserts it using AddBooking.
+
+Fetches it using GetBooking.
+
+Asserts that the inserted data matches expected values.
+
+## GetBooking_ShouldReturnCorrectBooking
+Purpose: Confirms that retrieving a booking by ID returns the correct data.
+
+Logic:
+
+Adds a known booking to the system.
+
+Retrieves it using GetBooking.
+
+Checks that the retrieved booking matches the input.
