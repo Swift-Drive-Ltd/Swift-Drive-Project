@@ -148,3 +148,22 @@ Purpose:
 -The GetCar method allows the system to retrieve car details by their unique CarID.
 - The ModifyCar method enables updating car details while ensuring data consistency between in-memory structures and the database.
 
+
+Day 5 :
+
+DeleteCar Method:
+
+- Removes a car from the CustomHashTable, SortedLinkedList, and the SQLite database.
+- Provides console feedback for success or failure.
+
+
+DisplayCarsSorted Method:
+
+- Displays all cars in sorted order using the SortedLinkedList.
+
+
+Purpose:
+
+-The DeleteCar method allows the system to remove cars from both in-memory data structures and the database, ensuring data consistency.
+
+- The DisplayCarsSorted method enables user interaction by displaying all cars in a sorted order, based on the Model property.

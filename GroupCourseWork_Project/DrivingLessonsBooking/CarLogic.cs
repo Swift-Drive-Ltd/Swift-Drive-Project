@@ -1,15 +1,16 @@
+using System.Data.SQLite;
+
 namespace DrivingLessonsBooking
 {
     public class CarLogic
     {
         private CustomHashTable<string, Car> cars;
         private SortedLinkedList<Car> sortedCars;
-        //Figure out code for connection string (SQL Database Management Studio) 
-        private string connectionString =
+        private string connectionString = "Data Source=C:\\sqlite\\gui\\driving-lessons.db;Version=3;";
 
         public CarLogic(int capacity)
         {
-            // Initialize the hash table and sorted linked list
+            // Initialise the hash table and sorted linked list
             cars = new CustomHashTable<string, Car>(capacity);
             sortedCars = new SortedLinkedList<Car>();
 
@@ -138,6 +139,39 @@ namespace DrivingLessonsBooking
 
             Console.WriteLine("Car updated successfully.");
         }
+        public bool DeleteCar(string id)
+        {
+            Car toRemove = cars.Search(id);
+            if (toRemove == null)
+            {
+                Console.WriteLine("Car not found.");
+                return false;
+            }
+
+            cars.Delete(id);
+            sortedCars.Delete(toRemove);
+
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+                using (var cmd = new SQLiteCommand("DELETE FROM Cars WHERE CarID = @id", conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            Console.WriteLine("Car deleted successfully.");
+
+            return true;
+         }
+
+            public void DisplayCarsSorted()
+        {
+            sortedCars.Display();
+        }
+       
+
     }
 
 }
