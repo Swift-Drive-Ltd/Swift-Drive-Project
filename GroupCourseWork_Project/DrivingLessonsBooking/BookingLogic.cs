@@ -1,5 +1,3 @@
-// Responsible: David
-
 using System.Data.SQLite;
 
 namespace DrivingLessonsBooking
@@ -17,11 +15,50 @@ namespace DrivingLessonsBooking
             LoadBookingsFromDatabase();
         }
 
+        public void CheckDatabaseConnection()
+        {
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+                Console.WriteLine("Connection to SQLite database established.");
+
+                // Check if the Bookings table exists
+                using (var cmd = new SQLiteCommand("SELECT name FROM sqlite_master WHERE type='table' AND name='Bookings';", conn))
+                {
+                    var result = cmd.ExecuteScalar();
+                    if (result == null)
+                    {
+                        Console.WriteLine("Table 'Bookings' does not exist.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Table 'Bookings' exists.");
+                    }
+                }
+
+                conn.Close();
+                Console.WriteLine("Connection to SQLite database closed.");
+            }
+        }
+
         public void LoadBookingsFromDatabase()
         {
             using (var conn = new SQLiteConnection(connectionString))
             {
                 conn.Open();
+                Console.WriteLine("Connection to SQLite database established.");
+
+                // Check if the Bookings table exists
+                using (var cmd = new SQLiteCommand("SELECT name FROM sqlite_master WHERE type='table' AND name='Bookings';", conn))
+                {
+                    var result = cmd.ExecuteScalar();
+                    if (result == null)
+                    {
+                        Console.WriteLine("Table 'Bookings' does not exist.");
+                        return;
+                    }
+                }
+
                 using (var cmd = new SQLiteCommand("SELECT * FROM Bookings", conn))
                 using (var reader = cmd.ExecuteReader())
                 {
@@ -39,9 +76,13 @@ namespace DrivingLessonsBooking
                         sortedBookings.Insert(booking);
                     }
                 }
+
+                conn.Close();
+                Console.WriteLine("Connection to SQLite database closed.");
             }
         }
- public void AddBooking(Booking booking)
+
+        public void AddBooking(Booking booking)
         {
             if (bookings.Search(booking.BookingID) != null)
             {
@@ -110,9 +151,10 @@ namespace DrivingLessonsBooking
                 }
             }
 
-            Console.WriteLine("Booking updated Successfully.");
+            Console.WriteLine("Booking updated successfully.");
         }
- public bool DeleteBooking(string id)
+
+        public bool DeleteBooking(string id)
         {
             Booking toRemove = bookings.Search(id);
             if (toRemove == null)
