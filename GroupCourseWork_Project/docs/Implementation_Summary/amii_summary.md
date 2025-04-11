@@ -167,3 +167,17 @@ Purpose:
 -The DeleteCar method allows the system to remove cars from both in-memory data structures and the database, ensuring data consistency.
 
 - The DisplayCarsSorted method enables user interaction by displaying all cars in a sorted order, based on the Model property.
+
+
+Day 6 :
+
+- Created a generic SortedLinkedList<T> class to manage data in a sorted order.
+
+- The Insert method ensures elements are added in the correct position based on their natural order.
+
+- The Delete method removes a specific element from the list while maintaining the list's integrity.
+
+- The Display method iterates through the list and prints all elements, providing a way to view the list's contents.
+
+This implementation is designed to work with any type that implements the IComparable<T> interface.
+
