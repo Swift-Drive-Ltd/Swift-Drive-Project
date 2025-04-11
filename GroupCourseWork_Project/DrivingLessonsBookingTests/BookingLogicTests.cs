@@ -1,4 +1,3 @@
-// Responsible: David
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -43,7 +42,7 @@ namespace DrivingLessonsBookingTests
             Assert.IsNotNull(result);
             Assert.AreEqual("S001", result.studentID);
         }
-        
+
         [TestMethod]
         public void GetBooking_ShouldReturnCorrectBooking()
         {
