@@ -198,3 +198,25 @@ Adds a known booking to the system.
 Retrieves it using GetBooking.
 
 Checks that the retrieved booking matches the input.
+
+# Added More Unit Tests for Booking Operations
+## DeleteBooking_ShouldRemoveBooking
+Purpose: Validates that a booking is successfully removed.
+
+Logic:
+
+Adds a booking.
+
+Deletes it using DeleteBooking.
+
+Verifies that it no longer exists in the system.
+
+# DeleteBooking_ShouldReturnFalseForNonExistentBooking
+Purpose: Ensures the system handles deletion of non-existent bookings gracefully.
+
+Logic:
+
+Tries to delete a non-existent booking.
+
+Verifies the return value is false.
+

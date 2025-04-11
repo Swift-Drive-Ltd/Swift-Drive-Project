@@ -56,3 +56,25 @@ namespace DrivingLessonsBookingTests
             // Assert
             Assert.IsNotNull(result);
             Assert.AreEqual("Alice", result.studentID);
+            [TestMethod]
+        public void DeleteBooking_ShouldRemoveBooking()
+        {
+            var booking = new Booking("B004", "Eve", "Frank", DateTime.Now, "Mazda");
+            bookingLogic.AddBooking(booking);
+
+            bool isDeleted = bookingLogic.DeleteBooking("B004");
+            var result = bookingLogic.GetBooking("B004");
+
+            Assert.IsTrue(isDeleted);
+            Assert.IsNull(result);
+        }
+
+        [TestMethod]
+        public void DeleteBooking_ShouldReturnFalseForNonExistentBooking()
+        {
+            bool isDeleted = bookingLogic.DeleteBooking("B999");
+
+            Assert.IsFalse(isDeleted);
+        }
+    }
+}
