@@ -43,6 +43,15 @@ namespace DrivingLessonsBookingTests
 
             Assert.AreEqual(1, result);
         }
+        [TestMethod]
+        public void Booking_ToString_ShouldReturnCorrectFormat()
+        {
+            Booking booking = new Booking("B001", "Alice", "Bob", new DateTime(2025, 5, 10), "Honda");
+
+            string result = booking.ToString();
+
+            Assert.AreEqual("BookingID: B001, Student: Alice, Instructor: Bob, Date: 2025-05-10, Car: Honda", result);
+        }
 
     }
 }
