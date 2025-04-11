@@ -151,3 +151,48 @@ namespace DrivingLessonsBooking
             Console.WriteLine("Instructor updated successfully."); // Notify the user of success.
         }
 
+ // Method to delete an instructor from the system and database.
+        public bool DeleteInstructor(string id)
+        {
+            // Search for the instructor in the hash table using their ID.
+            Instructor toRemove = instructors.Search(id);
+
+            // If the instructor is not found, notify the user and exit the method.
+            if (toRemove == null)
+            {
+                Console.WriteLine("Instructor not found.");
+                return false; // Return false to indicate failure.
+            }
+
+            // Remove the instructor from the hash table and sorted linked list.
+            instructors.Delete(id);
+            sortedInstructors.Delete(toRemove);
+
+            // Open a connection to the SQLite database.
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+
+                // Create a SQL command to delete the instructor from the database.
+                using (var cmd = new SQLiteCommand("DELETE FROM Instructors WHERE InstructorID = @id", conn))
+                {
+                    // Add the ID parameter to prevent SQL injection.
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    // Execute the command to delete the record from the database.
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            Console.WriteLine("Instructor deleted successfully."); // Notify the user of success.
+            return true; // Return true to indicate success.
+        }
+
+        // Method to display all instructors in sorted order.
+        public void DisplayInstructorsSorted()
+        {
+            // Call the display method of the sorted linked list to print instructors.
+            sortedInstructors.Display();
+        }
+    }
+}

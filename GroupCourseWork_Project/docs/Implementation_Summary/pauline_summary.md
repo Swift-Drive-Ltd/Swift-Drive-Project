@@ -125,3 +125,72 @@
 - Opens a connection to the SQLite database.
 - Executes a parameterized SQL query to update the instructor's details in the database, preventing SQL injection.
 - Notifies the user upon successful update of the instructor.
+
+
+
+## Day 6
+## Summary of Implemented Features in InstructorLogic.cs
+# Namespace:
+|DrivingLessonsBooking
+
+# Class:
+|InstructorLogic
+
+- Manages instructor data and interactions with the SQLite database.
+
+# Methods:
+|DeleteInstructor(string id):
+
+- Searches for an instructor in the hash table using their ID.
+- If the instructor is not found, notifies the user and exits the method, returning false to indicate failure.
+- Removes the instructor from both the hash table and the sorted linked list.
+- Opens a connection to the SQLite database.
+- Executes a parameterized SQL query to delete the instructor's record from the database, preventing SQL injection.
+- Notifies the user upon successful deletion of the instructor and returns true to indicate success.
+
+# DisplayInstructorsSorted():
+
+- Displays all instructors in sorted order by calling the Display method of the sorted linked list.
+
+
+
+## Day 7  
+## Summary of Implemented Features in Student.cs
+
+# Namespace:
+| DrivingLessonsBooking
+
+# Class:
+| Student
+
+- **Purpose:**  
+  Represents a student in the driving lessons booking system with basic properties and functionality.
+
+- **Implemented Interfaces:**  
+  Implements `IComparable<Student>` to support sorting or comparing student objects based on the student's name.
+
+# Properties:
+| StudentID  
+- Stores the student's unique identifier.
+
+| Name  
+- Stores the student's name.
+
+| Email  
+- Stores the student's email address.
+
+# Constructors:
+| Default Constructor (`Student()`)  
+- Required for scenarios such as database retrieval or serialization.
+
+| Parameterized Constructor (`Student(string id, string name, string email)`)  
+- Initializes a new `Student` object with specific values for StudentID, Name, and Email.
+
+# Methods:
+| `CompareTo(Student? other)`  
+- Compares the current student object with another based on the `Name` property.
+- Uses the null-conditional operator to safely handle comparisons when the other student object is `null`.
+
+| `ToString()`  
+- Overrides the default `ToString` method.
+- Returns a formatted string displaying the student's ID, Name, and Email.
