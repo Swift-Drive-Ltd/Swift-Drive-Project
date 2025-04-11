@@ -47,4 +47,18 @@ To preview the diagram click on the tab of the file and click open preview to vi
 - Today **Date Added:** March 28, 2025
 -  **Description:** Implemenented a unit test code that ensures the Booking constructor properly initializes its properties. If the test passes, the constructor is working correctly. If it fails, there is an issue with how the Booking class handles its properties.
 - Today **Date Added:** March 29, 2025
--  **Description:** Updated the unit test code that ensures the Booking constructor properly initializes its properties. 
+-  **Description:** Updated the unit test code that ensures the Booking constructor properly initializes its properties.
+
+-  ### Booking Linked List Tests
+- **Date Added:** April 11, 2025
+- **Description:** Created unit tests for the `CustomLinkedList<T>` class within the `DrivingLessonsBooking` namespace to validate its core functionality.
+
+### Features Tested:
+1. **Insert Method**: Ensures elements are added to the list in sorted order.
+2. **Search Method**: Verifies that elements can be retrieved correctly if they exist in the list.
+3. **Delete Method**: Confirms that an attempt to delete a non-existent element returns `false`.
+
+### Technical Details:
+- **Testing Framework:** Microsoft Visual Studio Test Framework (MSTest)
+- **Namespace:** `DrivingLessonsBookingTests`
+- **Responsible Developer:** Nnamdi
