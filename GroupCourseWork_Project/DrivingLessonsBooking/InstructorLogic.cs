@@ -98,4 +98,56 @@ namespace DrivingLessonsBooking
             Console.WriteLine("Instructor successfully added."); // Notify the user of success.
         }
 
+      // Method to retrieve an instructor by their ID.
+        public Instructor GetInstructor(string id)
+        {
+            // Search for the instructor in the hash table using their ID.
+            return instructors.Search(id);
+        }
+
+        // Method to modify an existing instructor's details.
+        public void ModifyInstructor(string id, string name, string phone)
+        {
+            // Search for the instructor in the hash table using their ID.
+            Instructor existingInstructor = instructors.Search(id);
+
+            // If the instructor is not found, notify the user and exit the method.
+            if (existingInstructor == null)
+            {
+                Console.WriteLine("Instructor not found.");
+                return;
+            }
+
+            // Remove the instructor from the sorted linked list to update their details.
+            sortedInstructors.Delete(existingInstructor);
+
+            // Update the instructor's name and phone number.
+            existingInstructor.Name = name;
+            existingInstructor.Phone = phone;
+
+            // Reinsert the updated instructor into the sorted linked list.
+            sortedInstructors.Insert(existingInstructor);
+
+            // Open a connection to the SQLite database.
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+
+                // Create a SQL command to update the instructor's details in the database.
+                using (var cmd = new SQLiteCommand(
+                    "UPDATE Instructors SET Name = @name, Phone = @phone WHERE InstructorID = @id",
+                    conn))
+                {
+                    // Add parameters to prevent SQL injection.
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@phone", phone);
+
+                    // Execute the command to update the record in the database.
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            Console.WriteLine("Instructor updated successfully."); // Notify the user of success.
+        }
 
