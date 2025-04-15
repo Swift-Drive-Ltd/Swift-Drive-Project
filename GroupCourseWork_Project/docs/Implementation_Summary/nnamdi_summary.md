@@ -75,3 +75,70 @@
   - Collision handling using linked list chaining.
   - Display method for viewing all stored elements.
 - Robust handling of null values and edge cases.
+```markdown
+# Implementation Summary for `BookingTests.cs`
+
+## Commit 1: Add Basic Unit Tests for Booking Class
+
+### Implemented:
+- **Test Class `BookingTests`**:
+  - Created a test class using the `TestClassAttribute` to group all unit tests for the `Booking` class.
+- **Constructor Test `Booking_Constructor_ShouldInitializeProperties`**:
+  - Validates that the `Booking` constructor correctly initializes its properties: `BookingID`, `studentID`, `instructorID`, `LessonDate`, and `carID`.
+  - Uses `Assert.AreEqual` to confirm that expected and actual property values match.
+
+### Technical Details:
+- Ensures the constructor correctly assigns values passed as arguments.
+- Validates property initialization logic for robustness and correctness.
+
+### Next Steps:
+- Add tests for specific methods to ensure proper functionality.
+
+---
+
+## Commit 2: Add Comparison Tests for Booking Class
+
+### Implemented:
+- **Comparison Tests**:
+  - `Booking_CompareTo_ShouldReturnCorrectValue`:
+    - Verifies the `CompareTo` method by comparing bookings based on their lesson dates.
+    - Confirms that:
+      - Earlier bookings return a negative comparison result.
+      - Later bookings return a positive comparison result.
+      - Identical bookings return zero.
+  - `Booking_CompareTo_ShouldReturnOneWhenOtherIsNull`:
+    - Ensures the `CompareTo` method returns `1` when the compared booking object is `null`.
+
+### Technical Details:
+- Validates date-based comparison logic to ensure bookings are ordered correctly.
+- Handles null comparisons to prevent runtime errors.
+
+### Next Steps:
+- Add tests for string representation of bookings.
+
+---
+
+## Commit 3: Add ToString Method Test for Booking Class
+
+### Implemented:
+- **String Representation Test `Booking_ToString_ShouldReturnCorrectFormat`**:
+  - Confirms that the `ToString` method returns a properly formatted string representation of a booking:
+    - Format: `"BookingID: {ID}, Student: {Student}, Instructor: {Instructor}, Date: {Date}, Car: {Car}"`.
+  - Verifies the output against the expected string using `Assert.AreEqual`.
+
+### Technical Details:
+- Ensures the `ToString` method provides a clear and human-readable output.
+- Validates all properties are included in the formatted string.
+
+### Next Steps:
+- Expand test coverage for edge cases and invalid inputs.
+
+---
+
+## Completed Features:
+- Comprehensive unit tests for the `Booking` class covering:
+  - Constructor property initialization.
+  - Date-based comparison logic in `CompareTo`.
+  - String representation using `ToString`.
+- Robust handling of edge cases like null comparisons.
+```
