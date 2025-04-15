@@ -75,7 +75,7 @@
   - Collision handling using linked list chaining.
   - Display method for viewing all stored elements.
 - Robust handling of null values and edge cases.
-```markdown
+
 # Implementation Summary for `BookingTests.cs`
 
 ## Commit 1: Add Basic Unit Tests for Booking Class
@@ -141,4 +141,3 @@
   - Date-based comparison logic in `CompareTo`.
   - String representation using `ToString`.
 - Robust handling of edge cases like null comparisons.
-```
