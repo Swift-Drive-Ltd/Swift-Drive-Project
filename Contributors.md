@@ -1,6 +1,6 @@
 # Driving Lesson Booking System :
 
-This is a project for CST 2550 :  Software Engineering Management and Development
+This is a group project for CST 2550 : Software Engineering Management and Development.
 
 ## Contributors
 
