@@ -1,0 +1,30 @@
+-- Create Students Table
+CREATE TABLE IF NOT EXISTS Students (
+    StudentID TEXT PRIMARY KEY,
+    Name TEXT NOT NULL,
+    Email TEXT UNIQUE NOT NULL
+);
+
+-- Create Instructors Table
+CREATE TABLE IF NOT EXISTS Instructors (
+    InstructorID TEXT PRIMARY KEY,
+    Name TEXT NOT NULL,
+    Phone TEXT UNIQUE NOT NULL
+);
+
+-- Create Cars Table
+CREATE TABLE IF NOT EXISTS Cars (
+    CarID TEXT PRIMARY KEY,
+    Model TEXT NOT NULL,
+    Type TEXT NOT NULL,  -- Manual or Automatic
+    LicensePlate TEXT UNIQUE NOT NULL
+);
+
+-- Create Bookings Table
+CREATE TABLE IF NOT EXISTS Bookings (
+    BookingID TEXT PRIMARY KEY,
+    StudentID TEXT REFERENCES Students(StudentID) ON DELETE CASCADE,
+    InstructorID TEXT REFERENCES Instructors(InstructorID) ON DELETE CASCADE,
+    CarID TEXT REFERENCES Cars(CarID) ON DELETE CASCADE,
+    LessonDate TEXT NOT NULL
+);
