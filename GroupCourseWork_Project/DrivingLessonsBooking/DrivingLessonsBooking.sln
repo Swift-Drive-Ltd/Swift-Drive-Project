@@ -1,0 +1,31 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrivingLessonsBooking", "DrivingLessonsBooking.csproj", "{EE48B109-38B6-48B0-917F-1806F302FC98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrivingLessonsBookingTests", "..\DrivingLessonsBookingTests\DrivingLessonsBookingTests.csproj", "{1AC4F045-0194-4F94-A1B2-A648BB120A8E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE48B109-38B6-48B0-917F-1806F302FC98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE48B109-38B6-48B0-917F-1806F302FC98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE48B109-38B6-48B0-917F-1806F302FC98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE48B109-38B6-48B0-917F-1806F302FC98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AC4F045-0194-4F94-A1B2-A648BB120A8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AC4F045-0194-4F94-A1B2-A648BB120A8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AC4F045-0194-4F94-A1B2-A648BB120A8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AC4F045-0194-4F94-A1B2-A648BB120A8E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C0C96CD7-A654-4EFC-B28B-AEA8697922AA}
+	EndGlobalSection
+EndGlobal
